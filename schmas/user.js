@@ -22,6 +22,18 @@ const user__scema = new mongoose.Schema(
       type: Number,
       unique: true,
     },
+    owner: [
+      {
+        _id: {
+          type: mongoose.Types.ObjectId,
+          ref: 'Org',
+        },
+      },
+    ],
+    is_owner: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

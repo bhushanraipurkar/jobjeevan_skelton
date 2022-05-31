@@ -44,6 +44,22 @@ const job__schema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    owner: {
+      type: mongoose.Types.ObjectId,
+      ref: 'Org',
+    },
+    appliedby: [
+      {
+        _id: {
+          type: mongoose.Types.ObjectId,
+          ref: 'User',
+        },
+        created_at: {
+          type: Date,
+          default: Date.now(),
+        },
+      },
+    ],
   },
   { timestamps: true }
 );
