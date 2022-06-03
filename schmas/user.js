@@ -15,25 +15,25 @@ const user__scema = new mongoose.Schema(
       minlength: 6,
     },
     aadhar: {
-      type: String,
-      unique: true,
+      type: Number,
+      minlength: 12,
+      maxlength: 12,
     },
     phone: {
       type: Number,
-      unique: true,
+      minlength: 10,
+      maxlength: 10,
+    },
+    pass: {
+      type: String,
+      required: true,
     },
     owner: [
       {
-        _id: {
-          type: mongoose.Types.ObjectId,
-          ref: 'Org',
-        },
+        type: mongoose.Types.ObjectId,
+        ref: 'Org',
       },
     ],
-    is_owner: {
-      type: Boolean,
-      default: false,
-    },
   },
   { timestamps: true }
 );

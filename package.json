@@ -4,7 +4,7 @@
   "description": "backend for the jobjeevan ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "author": "Bhushan Raipurkar",
   "license": "MIT",

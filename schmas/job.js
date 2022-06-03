@@ -1,5 +1,15 @@
 const mongoose = require('mongoose');
 
+const application = mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User',
+    },
+  },
+  { timestamps: true }
+);
+
 const job__schema = new mongoose.Schema(
   {
     title: {
@@ -28,7 +38,6 @@ const job__schema = new mongoose.Schema(
       type: String,
       enum: ['full', 'part'],
       default: 'full',
-      required: true,
     },
     experience: {
       type: Number,
@@ -50,14 +59,8 @@ const job__schema = new mongoose.Schema(
     },
     appliedby: [
       {
-        _id: {
-          type: mongoose.Types.ObjectId,
-          ref: 'User',
-        },
-        created_at: {
-          type: Date,
-          default: Date.now(),
-        },
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
       },
     ],
   },
